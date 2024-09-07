@@ -19,7 +19,17 @@ body {
     width: 7em; 
     height: 6em;
     position: fixed;
+    transition: all 0.4s;
 }
+
+#logo img:hover {
+    transform: scale(1.1);
+}
+
+#logo img:active {
+    transform: scale(0.8);
+}
+
 header {
     display: flex;
     z-index: 10;
