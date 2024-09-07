@@ -1,17 +1,73 @@
 * {
-    height: 100vh;
     margin: 0;
     padding: 0;
+    overflow: hidden
+
 }
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
 body {
-    font-family: "Bebas Neue", sans-serif;
-    background-image: linear-gradient(to bottom, rgb(0,0,0), rgb(19, 18, 18), rgb(32, 32, 32));
+    display: flex;
+    background-image: linear-gradient(black, rgb(15, 15, 15), rgb(20, 20, 20));
+    height: 100vh;
+    justify-content: center;
 }
 #logo img {
+    left: 0;
     margin-top: -1em;
     margin-left: -1em;
     padding: 1em;
     width: 7em; 
     height: 6em;
     position: fixed;
+}
+header {
+    display: flex;
+    z-index: 10;
+}
+h1 {
+    display: flex;
+    margin-top: 0.3em;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px 1px 1px black;
+    width: 100%;
+    font-size: 4em;
+    color: rgb(223, 7, 7);
+}
+#filmes-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os filmes quebrem para a linha de baixo */
+    gap: 15px; /* Espaço entre as divs dos filmes */
+    justify-content: center; /* Centraliza as divs dentro do container */
+}
+
+.filme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+    margin-top: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    width: 245px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 15);
+    box-shadow: 1px 1px 6px 1px black;
+    box-sizing: border-box;
+}
+.filme img {
+    max-width: 105%;
+    height: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid red;
+
+}
+.filme h3 {
+    color: rgb(199, 197, 197);
+    padding: 1px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
 }
