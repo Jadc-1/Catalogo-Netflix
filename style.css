@@ -351,6 +351,9 @@ dialog::backdrop {
 
 @media screen and (max-width: 768px) {
 
+    body {
+        overflow: hidden;
+    }
 
     #menu_valores {
         visibility: hidden;
@@ -368,7 +371,7 @@ dialog::backdrop {
         overflow-x: hidden;
     }
 
-    #menu_valores li a{
+    #menu_valores li{
         padding-bottom: 0.2em;
         white-space: nowrap;
         border-bottom: 1px solid rgba(117, 117, 117, 0.349);
@@ -490,6 +493,7 @@ dialog::backdrop {
         margin-bottom: 5px;
     }
 
+    
 
 }
 
