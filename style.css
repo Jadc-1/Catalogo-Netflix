@@ -17,6 +17,8 @@ body {
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Não repetir a imagem */
     background-attachment: fixed; /* Mantém a imagem */
+   
+
     margin: 0;
     padding: 0;
     color: white;
@@ -58,6 +60,11 @@ header {
     padding: 1.5em;
     padding-top: 2em;
 }
+
+a {
+    text-transform: none !important;
+}
+
 .menu li a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.856);
@@ -77,6 +84,7 @@ header {
     width: 4.3em;
     height: auto;
     transition: all 0.4s;
+    display: none;
 }
 .search_menu img {
     margin-left: -20px;
@@ -102,14 +110,23 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+#pesquisa-filme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .titulo_filme {
+    text-align: center;
     color: rgb(197, 5, 5);
-    font-size: 6em;
+    font-size: 4em;
     letter-spacing: 0.05em;
     margin: 0;
     text-shadow: 0.5px 0.5px 0.5px black;
 }
-.search-config input {
+.input_filme {
     border-radius: 15px;
     background-color: lightgray;
     border: none;
@@ -118,11 +135,17 @@ main {
     margin-bottom: 1em;
     box-sizing: border-box;
     color: black;
+    box-shadow: 9px 9px 68px -8px rgba(0,0,0,0.75);
+
+}
+
+.input_filme:focus {
+    outline: none;
 }
 .search-config input::placeholder {
     color: rgba(0, 0, 0, 0.712);
 }
-.search-config button {
+#search-button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
     letter-spacing: 0.1px;
@@ -133,11 +156,11 @@ main {
     border-radius: 15px;
     transition: all 0.4s;
 }
-.search-config button:hover {
+#search-button:hover {
     background-color: rgb(230, 21, 21);
     transition: 0.4s;
 }
-.search-config button:active {
+.search-button:active {
     transform: scale(0.8);
 }
 
@@ -168,6 +191,7 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -1;
 }
 .direitos:hover {
     background-color: rgb(180, 6, 6);
@@ -323,4 +347,154 @@ dialog::backdrop {
 }
 .cor_variaveis {
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+
+
+    #menu_valores {
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 0em;
+        background-image: linear-gradient(black, rgb(15, 15, 15), rgb(20, 20, 20));
+        z-index: 1000;
+        transition: 0.2s;
+        overflow-x: hidden;
+    }
+
+    #menu_valores li a{
+        padding-bottom: 0.2em;
+        white-space: nowrap;
+        border-bottom: 1px solid rgba(117, 117, 117, 0.349);
+    }
+
+    #menu_valores li:first-child {
+        margin-top: 5em;
+    }
+
+    .search_menu {
+        display: flex;
+        z-index: 1500;
+        padding: 2em;
+        padding-inline: 3.8em;
+        font-size: 1rem;
+        color: white;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+    }
+    
+    #botao_menu {
+        color: rgb(197, 5, 5);
+        display: block;
+        border-top: 2px solid rgb(197, 5, 5);
+        width: 30px;
+    }
+    
+    /*Para um after ou before funcionar é preciso passar um conteudo vazio ou nao*/
+
+    #botao_menu::after, #botao_menu::before {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: currentColor; /*pega a cor atual, usada no botao_menu*/
+        margin-top: 5px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    /*Cria a animação de rotacionar o botão*/
+
+    .menu.active #botao_menu { 
+        border-top-color: transparent;
+    }
+
+    .menu.active #botao_menu::before {
+        transform: rotate(135deg);
+    }
+
+    .menu.active #botao_menu::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+
+    /*Se tiver a classe menu e active, adicione ao dois o display flex, para mostrar o listar filmes*/
+    .menu.active #menu_valores {
+        visibility: visible;
+        width: 12em;
+    }
+
+    .search_menu img {
+        margin: 0;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 3.5em;
+        height: auto;
+    }
+
+    #pesquisa-filme {
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #search-button{   
+        background-image: url('imagens/search.png');
+        background-size: 22px 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: transparent; /* Torna o texto invisível */
+        text-indent: -9999px; /* Remove o texto visível */
+        width: 3em;
+        height: 3.1em;
+        border-radius: 10px;
+        margin-bottom: 5px;
+
+    }
+
+    .search-config input, .search-config button {
+        flex-direction: row;
+    }
+    
+    #logo img{
+        margin: 0;
+        padding: 0;
+        width: 5em;
+        height: 4em;
+        margin-top: 10px;
+    }
+
+    .titulo_filme {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+
+    .search-config {
+        margin-top: 2em;
+    }
+
+    .input_filme {
+        width: 15em;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+
+}
+
+@media screen and (max-height: 568px) {
+    .titulo_filme {
+        font-size: 2.5em;
+    }
 }

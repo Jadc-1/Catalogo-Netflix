@@ -10,8 +10,19 @@ const info = document.getElementById("info");
 const sinopse = document.getElementById("content_sinopse");
 const procurarFilme = document.querySelector('input[type="text"]'); //vai pegar o valor que for escrito no input, e ja definimos que é um texto
 let resultadoPesquisa = "";
+const botaoMenu = document.querySelector(".search_menu")
 
 //---------------------------------------------------------------------
+
+function abrirMenu(event) {
+    if(event.type === 'touchstart') event.preventDefault();
+    const nav = document.querySelector(".menu");
+    nav.classList.toggle('active');
+    //adiciona a classe active após clicar, caso não tenha a classe, se tiver, retira o active, pois estamos usando toggle 0 ou 1
+}
+
+botaoMenu.addEventListener('click', abrirMenu );
+botaoMenu.addEventListener('touchstart', abrirMenu);
 
 
 //----------------------BOTÕES DE FECHAR DIALOG------------------
@@ -40,30 +51,31 @@ button.onclick = function () {
     if (filmeBuscado) { //se o filmebuscado estiver dentro da lista, faça;
         poster.innerHTML = `<img src="${filmeBuscado.cartaz}" alt="${filmeBuscado.titulo}">`;
         info.innerHTML = `
-        <h3 class= "info_titulo">Informações:</h3>
-        <ul class="lista_objetos">
+        <div id = "popup-container">
+            <h3 class= "info_titulo">Informações:</h3>
+            <ul class="lista_objetos">
 
-            <li><span class = "objetos_cor">Ano:</span> 
-                <span class="cor_variaveis">
-                    ${filmeBuscado.ano}
-                </span>
-            </li>
-            <li><span class = "objetos_cor">Duração:</span> 
-                <span class="cor_variaveis">
-                    ${filmeBuscado.duracao}
-                </span>
-            </li>
-            <li><span class = "objetos_cor">Autor:</span> 
-                <span class="cor_variaveis">
-                    ${filmeBuscado.autor}
-                </span>
-            </li>
-                <li><span class = "objetos_cor">Atores principais:</span> 
-                <span class="cor_variaveis">
-                    ${filmeBuscado.atores}
-                </span>
-            </li>
-        </ul>
+                <li><span class = "objetos_cor">Ano:</span> 
+                    <span class="cor_variaveis">
+                        ${filmeBuscado.ano}
+                    </span>
+                </li>
+                <li><span class = "objetos_cor">Duração:</span> 
+                    <span class="cor_variaveis">
+                        ${filmeBuscado.duracao}
+                    </span>
+                </li>
+                <li><span class = "objetos_cor">Autor:</span> 
+                    <span class="cor_variaveis">
+                        ${filmeBuscado.autor}
+                    </span>
+                </li>
+                    <li><span class = "objetos_cor">Atores principais:</span> 
+                    <span class="cor_variaveis">
+                        ${filmeBuscado.atores}
+                    </span>
+                </li>
+        </div>
         `
 
     

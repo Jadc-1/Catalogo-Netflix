@@ -13,15 +13,19 @@
             <img src="imagens/netflix-transparent-netflix-free-free-png.webp" alt="Logo da netflix">
         </div>
         <nav class="menu">
-            <li><a href="more.html" rel="next">Lista de Filmes</a></li>
-            <li><button class="search_menu"><img src="imagens/menu_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.png" alt="menu"></button></li>
+            <ul id="menu_valores">
+                <li><a href="more.html" rel="next">Lista de Filmes</a></li>
+            </ul>
+            <button class="search_menu"><span id="botao_menu"></span></button>
         </nav>
     </header>
     <main>
         <div class="search-config">
             <h1 class="titulo_filme">Filmes da Netflix</h1>
-            <input type="text" placeholder="Digite o nome do filme">
-            <button id="search-button">Pesquisar</button>
+            <div id = "pesquisa-filme">
+                <input type="text" placeholder="Digite o nome do filme" id="input_filme_celular" class="input_filme">
+                <button id="search-button">Pesquisar</button>
+            </div>
         </div>
     </main>
     <footer>
